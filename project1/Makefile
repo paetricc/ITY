@@ -23,4 +23,4 @@ pdflatex: $(NAME).tex
 
 # https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html#Choosing-the-Shell
 clean:
-	rm -rf $(NAME).{aux,dvi,log,ps,fls,synctex.gz,fdb_latexmk} 
+	rm -rf $(NAME).{aux,dvi,log,ps,fls,synctex.gz,fdb_latexmk,out} 
