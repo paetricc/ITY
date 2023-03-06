@@ -1,0 +1,89 @@
+# -15:archív nejde rozbalit
+V takovýchto případech jsem bohužel nemohl dělat nic jiného, než dát nula bodů.
+
+# -7:nepřeložitelné pomocí make
+# -8:nepřeložitelné
+V případě, že bylo některý z těchto problému jednoduché opravit, tak byla srážka zmírněna korekcí. 
+
+# X: korekce: ...
+Značná část opravování je prováděna automatizovaným skriptem. Ten ale může někdy srazit body za něco,
+co je správně (tzv. false alarm) v případě, že je správná konstrukce zapsaná netypickým způsobem.
+Na vyrušení false alarmů používám ruční korekce, které se v součtu bodově vynulují s false alarmy. 
+    
+# -0.2:chybí použití \binom pro kombinační čísla
+Kombinační čísla se dají sázet i jinak, ale obvykle mnohem složitěji než pomocí příkazů \binom
+a \choose či jejich variant (0.2 bodu bylo strhnuto i za použiti \pmatrix a podobně)
+
+# -1:chybí použití \newtheorem (pro Definice a Věty)
+Ruční sázení a číslování teorémů, vět a definic je nejen pracné, ale vede k nejednotnému stylu,
+chybám s číslováním a odkazováním.
+
+# -1:chybí použití \eqnarray pro skupinu vzorců (Rovnice (1) a (2))
+Skupiny vzorců se sází pomocí eqnarray nebo align, aby zůstaly vzájemně zarovnány (rovnítka pod
+sebou). Prostředí align je z balíku amsmath a obvykle vypadá trochu lépe než eqnarray, které je zase
+použitelné i bez balíků od AMS. Prostředí eqnarray se umí zalomit na konci stránky (což může i nemusí
+být žádoucí).
+
+# -0.2: špatné použití eqnarray
+# -1: špatné použití array
+V prostředí eqnarray a array je nutné používat znaky & pro oddělení sloupců. Není správně zapsat
+celou matici v jednom sloupci a vkládat rucně mezery. Podobně u eqnarray není vhodné vkládat rucně
+mezery pro zarovnání rovnítek pod sebe bez použití sloupců pomocí &.
+
+# -0.1: chybí použití symbolu X
+Srážka za nepoužití konkrétního matematického symbolu.
+
+# -0.1: velikost závorky
+V rovnici (1) měli být použity 3 *explicitní* velikosti závorky. Body jsem strhával, když použití 
+velikostí úplně/částečně chybělo (např. jen 2 explicitní velikosti a jedna výchozí). Pokud byly 
+velikosti závorek jen trochu odlišné zadání (tj. ne zřejmě výrazně mimo), snažil jsem se srážky rušit
+kompenzacemi. 
+
+# -0.5:chybi titlepage
+Pro sázení titulní strany existuje prostředí titlepage. Jeho použití při sazbě titulní strany se lze
+vyhnout jen za cenu zbytečné práce navíc (např. ruční nastavování čítačů stránek).
+
+# -0.5:titulní strana - nepoužit zlatý řez (mezery 0.382 a 0.618)
+Z dokumentu bylo jasné, že má být použit (přesně) zlatý řez. Většina řešení byla navíc součástí přednášky.
+Pokud někdo použil například 0.4 a 0.6, tak jsem bodovou srážku zmírňoval (ale stále to byla chyba).
+
+# -X: chybějící část projektu
+Pokud zcela chyběla některá část projektu, tak byly strženy body poměrově.
+	
+# -0:chybí nezlomitelné mezery (tildy, vlnky) před příkazem \ref a/nebo \pageref
+V přednáškách toto ještě zmíněno nebylo a nestrhával jsem tedy žádné body. Je ale vhodné používat nezlomitelné
+mezery před odkazy nebo citacemi, aby nedošlo k vysázení odkazu jako prvního znaku na novém řádku. 
+
+# -0:mezi číslem a jednotkou píšeme zůženou mezeru (např. 0{,}4\,em a 0{,}3\,em)
+Zde jsem body nestrhával, protože to měli špatně skoro všichni. Korektní zápis je ale takto.
+
+# -0:titulní strana - nepoužita explicitní velikost řádku (0.4em a 0.3em)
+Body jsem nestrhával, protože některým se dařilo dosáhnout stejného vzhledu i bez použití explicitní velikosti.
+Na titulní straně ale měla být použita explicitní velikost odřádkování. 
+
+# -X: vizualni odlisnost titulni strany
+Body jsem strhával v případě, že byla vizuální odlišnost příliš velká i s přihlédnutím ke zdrojovému
+kódu. Pokud kód vypadal dobře, ale přesto byla titulní strana vizuálně jiná, tak jsem body nestrhával.
+Důvodem pro strhnutí bylo třeba zcela jasně výrazně špatná velikost fontu, špatné pořadí řádků textu,
+nepoužití textsc, relativní velikost mezi řádky (název fakulty větší než školy), špatné zalomení
+řádků,...
+
+# -X: vizuální odlišnost dokumentu
+Pokud jste měli vše v kódu správně, ale přesto dokument vypadal i výrazně jinak, tak jsem body nestrhával.
+V této kategorii jsou především "ostatní" individuální chyby, kterých jsem si všiml při 
+hodnocení. Příkladem bylo špatné zarovnání nuly (vlevo místo na střed) v rovnici s kombinačním
+číslem, chybějící některý symbol, chybějící části textu/slova,... 
+
+# srážky stejné jako v prvním projektu (vysvětlení najdete v nedostatcích pro první projekt)
+přetečení sazby overfull / underfull
+sázení odkazů a referenčních bodů
+nedefinované reference
+sázení poznámek pod čarou
+font a jeho velikost a kódování
+česká lokalizace
+velikost stránky a okrajů
+chybějící a nadbytečné nezlomitelné mezery
+pevné mezery mimo titulní stranu a první rovnici v sekci 2
+násilné konce řádku mimo titulní stranu, array a eqnarray
+sázení pomlček
+...
