@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: Tomas Bartu                %
 % Email: xbartu11@stud.fit.vutbr.cz %
-% Datum: 6.3.2023                   %
+% Datum: 7.3.2023                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,twocolumn,11pt]{article}[06-03-2022]
@@ -90,17 +90,24 @@ Také nepřehlédněte, že nasledující tři rovnice mají zarovnaná rovnítk
     \label{eq1}
     - \cos^2 \beta & = & \frac{\frac{\frac{1}{x} + \frac{1}{3}}{y} + 1000}{\prod\limits^8_{j=2} q_j} \\
     \label{eq2}
-    (\{ b \star [3 \div 4] \circ a \})& = & \log_{10} x \\
+    \left ( \left \{ b \star [3 \div 4] \circ a \right \}^\frac{2}{3} \right ) & = & \log_{10} x \\
     \label{eq3}
     \int^b_a f(x)\,\mathrm{d}x & = & \int^d_c f(y)\,\mathrm{d}x
 \end{eqnarray}
-V této větě vidíme, jak vypadá implicitní vysázení limity v normálním odstavci textu. Podobně je to i s dalšími symboly jako či.
-S vynucením méně úsporné sazby příkazem \verb|\limits| budou vzorce vysázeny v podobě a.
+V této větě vidíme, jak vypadá implicitní vysázení limity $\lim_{m\to\infty} f(m)$ v normálním odstavci textu. Podobně je to i s dalšími symboly jako $\bigcup_{N\in\mathcal{M}}N$ či $\sum^m_{i=1}x^2_i$.
+S vynucením méně úsporné sazby příkazem \verb|\limits| budou vzorce vysázeny v podobě $\lim\limits_{m\to\infty} f(m)$ a $\sum\limits^m_{i=1} x^4_i$.
 
 \section{Matice}
 Pro sázení matic se velmi často používá prostředí \texttt{array} a závorky (\verb|\left|, \verb|\right|). 
 Prostředí \texttt{array} lze úspěšně využít i jinde, například na pravé straně následující rovnice. 
 Kombinační číslo na levé straně vysázejte pomocí příkazu \verb|\binom|.
+$$ \binom{n}{k} = \left \{
+\begin{array}{c l}
+    0                   & \textrm{pro } k < 0 \\
+    \frac{n!}{k!(n-k)!} & \textrm{pro } 0 \leq k \leq n \\
+    0                   & \textrm{pro } k > 0 
+\end{array}
+\right. $$
 
 \end{document}
 
