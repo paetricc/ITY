@@ -3,11 +3,11 @@
 ## Témata projektů
 | Pořadí |                   Téma                   |    Bodů   |    Datum zadání      | Datum odevzdání   |  Konzultant |
 |:------:|:----------------------------------------:|:---------:|----------------------|-------------------|-------------|
-| 1.     | Hladká a smíšená sazba                   |   10 bodů |          21. 2. 2023 |        6. 3. 2023 | Jiří Pavela |
-| 2.     | Sazba dokumentů a matematických výrazů   |   15 bodů |           7. 3. 2023 |       20. 3. 2023 |             |
-| 3.     | Obrázky, algoritmy a tabulky             |   15 bodů |          21. 3. 2023 |        3. 4. 2023 |             |
-| 4.     | Bibliografické citace                    |   15 bodů |           4. 4. 2023 |       17. 4. 2023 |             |
-| 5.     | Tvorba prezentací                        |   15 bodů |          18. 4. 2023 |        8. 5. 2023 |             |
+| 1.     | Hladká a smíšená sazba                   |   10 bodů |          21. 2. 2023 |        6. 3. 2023 | [Jiří Pavela](http://www.fit.vut.cz/person/ipavela/.cs) |
+| 2.     | Sazba dokumentů a matematických výrazů   |   15 bodů |           7. 3. 2023 |       20. 3. 2023 | [Ondřej Vašíček](https://www.fit.vut.cz/person/ivasicek/.cs) |
+| 3.     | Obrázky, algoritmy a tabulky             |   15 bodů |          21. 3. 2023 |        3. 4. 2023 | [Jaroslav Rozman](https://www.fit.vut.cz/person/rozmanj/.cs) |
+| 4.     | Bibliografické citace                    |   15 bodů |           4. 4. 2023 |       17. 4. 2023 | [Jaroslav Rozman](https://www.fit.vut.cz/person/rozmanj/.cs) |
+| 5.     | Tvorba prezentací                        |   15 bodů |          18. 4. 2023 |        8. 5. 2023 | [Milan Češka](https://www.fit.vut.cz/person/ceskam/.cs) |
  
 
 ## Obecné pokyny k projektům
