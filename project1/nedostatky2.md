@@ -212,6 +212,7 @@ V delším dokumentu se vám mohou takto sázené poznámky pod čarou snadno zp
 ##
 
 * **-0.5:nepoužito prostředí quotation pro sazbu citace ve 2. sekci**
+
 Použití různých způsobů odsazení odstavce "Čím více druhů..." namísto použití prostředí quotation. \
 Obvykle je tato chyba spojena s ručním pozicováním pomocí \hskip, \quad, \qquad, nebo použitím quote + \indent.\
 Nápovědu k použití prostředí quotation jste měli explicitně uvedenou ve 2. přednášce z ITY. 
