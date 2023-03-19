@@ -17,6 +17,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \newtheorem{theorem}{Definice}
+\theoremstyle{definition}
 \newtheorem{sentence}{Věta}
 
 \begin{document}
@@ -52,21 +53,21 @@ Definice a věty sázíme pomocí příkazu \verb|\newtheorem| s využitím bal�
 Někdy je vhodné použít konstrukci \verb|${}$| nebo \verb|\mbox{}|, která říká, že (matematický) text nemá být zalomen.
 
 \begin{theorem}\label{def1}
-    Zásobníkový automat \emph{(ZA) je definován jako sedmice tvaru $A = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$, kde:} 
+    \emph{Zásobníkový automat} (ZA) je definován jako sedmice tvaru $A = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$, kde: 
     \begin{itemize}
-        \item $Q$ \emph{je konečná množina} vnitřních (řídicích) stavů,
-        \item $\Sigma$ \emph{je konečná} vstupní abeceda,
-        \item $\Gamma$ \emph{je konečná} zásobníková abeceda,
-        \item $\delta$ \emph{je} přechodová funkce $Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^\ast}$,
-        \item $q_0 \in Q$ \emph{je} počáteční stav\emph{,} $Z_0 \in \Gamma$ \emph{je} startovací symbol zásobníku \emph{a $F \subseteq Q$ je množina} koncových stavů.
+        \item $Q$ je konečná množina \emph{vnitřních (řídicích) stavů},
+        \item $\Sigma$ je konečná \emph{vstupní abeceda},
+        \item $\Gamma$ je konečná \emph{zásobníková abeceda},
+        \item $\delta$ je \emph{přechodová funkce} $Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^\ast}$,
+        \item $q_0 \in Q$ je \emph{počáteční stav}, $Z_0 \in \Gamma$ je \emph{startovací symbol zásobníku} a $F \subseteq Q$ je množina \emph{koncových stavů}.
     \end{itemize}
 \end{theorem}
 Nechť $P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ je ZA. \emph{Konfigurací} nazveme trojici $(q,w,\alpha) \in Q \times \Sigma^\ast \times \Gamma^\ast$, kde $q$ je aktuální stav vnitřního řízení, $w$ je dosud nezpracovaná část vstupního řetězce a $\alpha = Z_{i_1} Z_{i_2} \ldots Z_{i_k}$ je obsah zásobníku.
 
 \subsection{Podsekce obsahující definici a větu}
 \begin{theorem}\label{def2}
-    Řetězec $w$ nad abecedou $\Sigma$ je přijat ZA $A$~\emph{jestliže $(q_0, w, Z_0) \overset{\ast}{\underset{A}{\vdash}} (q_F, \epsilon, \gamma)$ pro nějaké $\gamma \in \Gamma^\ast$ a $q_F \in F$.
-    Množina $L(A) = \{w \mid w \textrm{ je přijat ZA } A \} \subseteq \Sigma^\ast$ je} jazyk přijímaný ZA $A$.
+    \emph{Řetězec $w$ nad abecedou $\Sigma$ je přijat ZA} $A$~jestliže $(q_0, w, Z_0) \overset{\ast}{\underset{A}{\vdash}} (q_F, \epsilon, \gamma)$ pro nějaké $\gamma \in \Gamma^\ast$ a $q_F \in F$.
+    Množina $L(A) = \{w \mid w \textrm{ je přijat ZA } A \} \subseteq \Sigma^\ast$ je \emph{jazyk přijímaný ZA} $A$.
 \end{theorem}
 \begin{sentence}
     \emph{Třída jazyků, které jsou přijímány ZA, odpovídá} bezkontextovým jazykům.
