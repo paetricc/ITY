@@ -7,15 +7,20 @@
 \documentclass[a4paper,11pt]{article}[20-03-2022]
 
 \usepackage[text={17cm, 24cm}, left=2cm, top=3cm]{geometry}
-\usepackage{algorithm2e}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 \usepackage[hidelinks]{hyperref}
+\usepackage{multirow}
 \usepackage{xcolor}
+\usepackage{array}
+
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}
 
 \begin{document}
-\color{green}
+\catcode`\-=12
+\color{red}
 \begin{titlepage}
     \begin{center}
         \Huge \textsc{Vysoké učení technické v Brně}
@@ -42,8 +47,96 @@ Pro sázení tabulek můžeme použít buď prostředí\texttt{ tabbing }nebo pr
 \subsection{Prostředí\texttt{ tabbing }}
 Při použití\texttt{ tabbing }vypadá tabulka následovně:
 \begin{tabbing}
-    
+    Vodní melouny \quad \= Cena \quad \= Množství \kill
+    \textbf{Ovoce}      \> \textbf{Cena} \> \textbf{Množství}\\
+    Jablka              \> 25,90         \> 3\,kg\\
+    Hrušky              \> 27,40         \> 2,5\,kq\\
+    Vodní melouny       \> 35,--         \> 1 kus\\
 \end{tabbing}
-Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí\texttt{ algorithm }nebo\texttt{ algorithm2e }(viz sekce 3).
+Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí\texttt{ algorithm }nebo\texttt{ algorithm2e }(viz sekce~\ref{sec:3}).
+
+\subsection{Prostředí\texttt{ tabular }}
+Další možností, jak vytvořit tabulku, je použít prostředí\texttt{ tabular}. 
+Tabulky pak budou vypadat jako\footnotemark:
+\bigskip
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+                                                     \hline
+             & \multicolumn{2}{c |}{\textbf{Cena}} \\\cline{2-3}
+        Měna & nákup  & prodej                     \\\hline
+        EUR  & 22,705 & 25,242                     \\
+        GBP  & 25,931 & 28,828                     \\
+        USD  & 21,347 & 23,732                     \\\hline
+    \end{tabular}
+    \caption{Tabulka kurzů k dnešnímu dni}
+\end{table}
+\bigskip
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| >{\bfseries} c | c |}
+        \hline
+        $A$ & $\neg A$ \\\hline
+        P & N \\\hline
+        O & O \\\hline
+        X & X \\\hline
+        N & P \\\hline
+    \end{tabular}
+    \begin{tabular}{| c | >{\bfseries} c | c | c | c | c |}
+        \hline
+        \multicolumn{2}{| c |}{\multirow{2}{*}{$A \wedge B$}} & \multicolumn{4}{ c |}{$B$} \\\cline{3-6}
+        \multicolumn{2}{| c |}{} & \textbf{P} & \textbf{O} & \textbf{X} & \textbf{N}       \\\hline
+        \multirow{4}{*}{$A$} & P & P          & O          & X          & N                \\\cline{2-6}
+                             & O & O          & O          & N          & N                \\\cline{2-6}
+                             & X & X          & N          & X          & N                \\\cline{2-6}
+                             & N & N          & N          & N          & N                \\\cline{2-6}
+                                                                                             \hline
+    \end{tabular}
+    \begin{tabular}{| c | >{\bfseries} c | c | c | c | c |}
+        \hline
+        \multicolumn{2}{| c |}{\multirow{2}{*}{$A \vee B$}} & \multicolumn{4}{ c |}{$B$} \\\cline{3-6}
+        \multicolumn{2}{| c |}{} & \textbf{P} & \textbf{O} & \textbf{X} & \textbf{N}     \\\hline
+        \multirow{4}{*}{$A$} & P & P          & P          & P          & P              \\\cline{2-6}
+                             & O & P          & O          & P          & O              \\\cline{2-6}
+                             & X & P          & P          & X          & X              \\\cline{2-6}
+                             & N & P          & O          & X          & N              \\\cline{2-6}
+                                                                                           \hline
+    \end{tabular}
+    \begin{tabular}{| c | >{\bfseries} c | c | c | c | c |}
+        \hline
+        \multicolumn{2}{| c |}{\multirow{2}{*}{$A \rightarrow B$}} & \multicolumn{4}{ c |}{$B$} \\\cline{3-6}
+        \multicolumn{2}{| c |}{} & \textbf{P} & \textbf{O} & \textbf{X} & \textbf{N}            \\\hline
+        \multirow{4}{*}{$A$} & P & P          & O          & X          & N                     \\\cline{2-6}
+                             & O & P          & O          & P          & O                     \\\cline{2-6}
+                             & X & P          & P          & X          & X                     \\\cline{2-6}
+                             & N & P          & P          & P          & P                     \\\cline{2-6}
+                                                                                                  \hline
+    \end{tabular}
+    \caption{Protože Kleeneho trojhodnotová logika už je \uv{zastaralá}, uvádíme si zde příklad čtyřhodnotové logiky}
+\end{table}
+
+\footnotetext{Kdyby byl problem s\texttt{ cline,} zkuste se poddívat třeba sem: http://www.abclinuxu.cz/tex/poradna/show/325037.}
+
+\newpage
+
+\section{Algoritmy} \label{sec:3}
+Pokud budeme chtít vysázet algoritmus, můžeme použít prostředí\texttt{ algorithm\footnote{Pro nápovědu, jak zacházet s prostředím\texttt{ algorithm,} můžeme zkusit tuhle stránku:\\http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithms/algorithms.pdf.} }nebo\texttt{ algorithm2e\footnote{Pro\texttt{ algorithm2e }zase tuhle: http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf.}}. 
+Příklad použití prostředí\texttt{ algorithm2e }viz Algoritmus~\ref{alg}.
+\bigskip
+\begin{algorithm}
+    \DontPrintSemicolon
+    \KwIn{$(X_{t-1}, u_t, z_t)$}
+    \KwOut{$X_t$}
+    $\overline{X_t} = X_t = 0$\;
+    \For{$k = 1$ to $M$}{
+        
+
+    }
+    \caption{\textsc{FastSLAM}\label{alg}}
+\end{algorithm}
+
+\section{Obrázky}
+Do našich článků můžeme samozřejmě vkládat obrázky. Pokud je obrázkem fotografie, můžeme klidně použít bitmapový soubor. 
+Pokud by to ale mělo být nějaké schéma nebo něco podobného, je dobrým zvykem takovýto obrázek vytvořit vektorově.
 
 \end{document}
