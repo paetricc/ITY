@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor: Tomas Bartu                %
+% Email: xbartu11@stud.fit.vutbr.cz %
+% Datum: 20.3.2023                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}[20-03-2022]
+
+\usepackage[text={17cm, 24cm}, left=2cm, top=3cm]{geometry}
+\usepackage{algorithm2e}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\begin{document}
+\color{green}
+\begin{titlepage}
+    \begin{center}
+        \Huge \textsc{Vysoké učení technické v Brně}
+
+        \huge \textsc{Fakulta informačních technologií}
+
+        \vspace{\stretch{0.382}}
+
+        \LARGE Typografie a publikování\,--\,3. projekt
+
+        \Huge Tabulky a obrázky
+
+        \vspace{\stretch{0.618}}
+    \end{center}
+    {\Large \today \hfill Tomáš Bártů}    
+\end{titlepage}
+
+\section{Úvodní strana}
+Název práce umístěte do zlatého řezu a nezapomeňte uvést \uv{dnešní}    (today) datum a vaše jméno a příjmení.
+
+\section{Tabulky}
+Pro sázení tabulek můžeme použít buď prostředí\texttt{ tabbing }nebo prostředí\texttt{ tabular }.
+
+\subsection{Prostředí\texttt{ tabbing }}
+Při použití\texttt{ tabbing }vypadá tabulka následovně:
+\begin{tabbing}
+    
+\end{tabbing}
+Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí\texttt{ algorithm }nebo\texttt{ algorithm2e }(viz sekce 3).
+
+\end{document}
