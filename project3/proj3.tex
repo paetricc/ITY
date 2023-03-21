@@ -16,6 +16,7 @@
 \usepackage{array}
 \usepackage{graphics}
 \usepackage{pdflscape}
+\usepackage{pict2e}
 
 % Upravení stylu url
 \renewcommand\UrlFont{\rmfamily}
@@ -193,7 +194,7 @@ Pak je ovšem potřeba zdrojový soubor přeložit dvakrát.
 Vektorové obrázky lze vytvořit i přímo v \LaTeX u, například pomocí prostředí\texttt{ picture.}
 
 \begin{landscape}
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \setlength{\unitlength}{1mm}
         \centering
         \begin{picture}(240,140)
@@ -274,7 +275,16 @@ Vektorové obrázky lze vytvořit i přímo v \LaTeX u, například pomocí pros
             {\linethickness{1.5mm} \put(105,20){\line(-1,0){85}}}
             \put(105,20){\line(-6,-1){85}}
             \put(20,20){\line(0,-1){14}}
-
+            \linethickness{1pt}
+            %slunce
+            \put(230,130){\circle{20}}
+            \put(230,118){\line(0, -1){6}}
+            \put(235,118){\line(1, -4){1,5}}
+            \put(225,118){\line(-1, -4){1,5}}
+            \put(218,130){\line(-1, 0){6}}
+            \put(218,135){\line(-4, 1){6}}
+            \put(218,125){\line(-4, -1){6}}
+            \put(221,121){\line(-1, -1){4}}
 
 
         \end{picture}
