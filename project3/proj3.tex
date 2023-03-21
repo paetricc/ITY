@@ -7,7 +7,7 @@
 \documentclass[a4paper,11pt]{article}[20-03-2022]
 
 \usepackage[text={17cm, 24cm}, left=2cm, top=3cm]{geometry}
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[ruled,czech,noline,vlined,linesnumbered,longend]{algorithm2e}
 \usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{times}
@@ -15,8 +15,7 @@
 \usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{array}
-
-\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}
+\usepackage{graphics}
 
 \begin{document}
 \catcode`\-=12
@@ -53,7 +52,7 @@ Při použití\texttt{ tabbing }vypadá tabulka následovně:
     Hrušky              \> 27,40         \> 2,5\,kq\\
     Vodní melouny       \> 35,--         \> 1 kus\\
 \end{tabbing}
-Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí\texttt{ algorithm }nebo\texttt{ algorithm2e }(viz sekce~\ref{sec:3}).
+Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí\texttt{ algorithm }nebo\texttt{ algorithm2e }(viz sekce~\ref{sec3}).
 
 \subsection{Prostředí\texttt{ tabular }}
 Další možností, jak vytvořit tabulku, je použít prostředí\texttt{ tabular}. 
@@ -70,6 +69,7 @@ Tabulky pak budou vypadat jako\footnotemark:
         USD  & 21,347 & 23,732                     \\\hline
     \end{tabular}
     \caption{Tabulka kurzů k dnešnímu dni}
+    \label{tab1}
 \end{table}
 \bigskip
 \begin{table}[h]
@@ -113,30 +113,75 @@ Tabulky pak budou vypadat jako\footnotemark:
                                                                                                   \hline
     \end{tabular}
     \caption{Protože Kleeneho trojhodnotová logika už je \uv{zastaralá}, uvádíme si zde příklad čtyřhodnotové logiky}
+    \label{tab2}
 \end{table}
 
 \footnotetext{Kdyby byl problem s\texttt{ cline,} zkuste se poddívat třeba sem: http://www.abclinuxu.cz/tex/poradna/show/325037.}
 
 \newpage
 
-\section{Algoritmy} \label{sec:3}
+\section{Algoritmy}
+\label{sec3}
 Pokud budeme chtít vysázet algoritmus, můžeme použít prostředí\texttt{ algorithm\footnote{Pro nápovědu, jak zacházet s prostředím\texttt{ algorithm,} můžeme zkusit tuhle stránku:\\http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithms/algorithms.pdf.} }nebo\texttt{ algorithm2e\footnote{Pro\texttt{ algorithm2e }zase tuhle: http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf.}}. 
 Příklad použití prostředí\texttt{ algorithm2e }viz Algoritmus~\ref{alg}.
 \bigskip
 \begin{algorithm}
+    \label{alg}
     \DontPrintSemicolon
     \KwIn{$(X_{t-1}, u_t, z_t)$}
     \KwOut{$X_t$}
     $\overline{X_t} = X_t = 0$\;
     \For{$k = 1$ to $M$}{
-        
-
+        $x_t^{[k]} = \emph{sample\_motion\_model}(u_t, x_{t-1}^{[k]})$\;
+        $\omega_t^{[k]} = \emph{measurement\_model} (z_t, x_t^{[k]}, m_{t-1})$\;
+        $m_t^{[k]} = update\_occupancy\_grid (z_t, x_t^{[k]}, m_{t-1}^{[k]})$\;
+        $\overline{X_t} = \overline{X_t} + \langle x_x^{[m]}, \omega_t^{[m]} \rangle$\;
     }
-    \caption{\textsc{FastSLAM}\label{alg}}
+    \For{$k = 1$ to $M$} {
+        draw $i$ with propability $\approx \omega_t^[i]$\;
+        add $\langle x_x^{[k]}, m_t^{[k]} \rangle$ to $X_t$\;
+    }
+    \Return{$X_t$}
+    \caption{\textsc{FastSLAM}}
 \end{algorithm}
 
 \section{Obrázky}
 Do našich článků můžeme samozřejmě vkládat obrázky. Pokud je obrázkem fotografie, můžeme klidně použít bitmapový soubor. 
 Pokud by to ale mělo být nějaké schéma nebo něco podobného, je dobrým zvykem takovýto obrázek vytvořit vektorově.
 
+\begin{figure}[h]
+    \centering
+    \scalebox{0.4}{
+        \includegraphics{etiopan.eps}
+        \reflectbox{\includegraphics{etiopan.eps}}
+    }
+    \caption{Malý Etiopánek a jeho bratříček}
+    \label{pic1}
+\end{figure}
+
+\newpage
+Rozdíl mezi vektorovým\,\dots
+\begin{figure}[h]
+    \centering
+    \scalebox{0.4}{\includegraphics{oniisan.eps}}
+    \caption{Vektorový obrázek}
+    \label{pic2}
+\end{figure}
+\bigskip
+
+\noindent\dots\,a bitmapovým obrázkem
+
+\begin{figure}[h]
+    \centering
+    \scalebox{0.6}{\includegraphics{oniisan2.eps}}
+    \caption{Bitmapový obrázek}
+    \label{pic3}
+\end{figure}
+\bigskip
+\noindent se projeví například při zvětšení.
+
+Odkazy (nejen ty) na obrázky~\ref{pic1},~\ref{pic2} a~\ref{pic3}, na tabulky~\ref{tab1} a~\ref{tab2} a také na algoritmus~\ref{alg} jsou udělány pomocí křížových odkazů. 
+Pak je ovšem potřeba zdrojový soubor přeložit dvakrát.
+
+Vektorové obrázky lze vytvořit i přímo v \LaTeX u, například pomocí prostředí\texttt{ picture}.
 \end{document}

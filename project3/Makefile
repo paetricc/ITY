@@ -9,7 +9,7 @@ NAME=proj3
 LOGIN=xbartu11
 SIZE=-sPAPERSIZE=a4
 
-all: latex overlay
+all: latex
 
 latex: $(NAME).ps
 	ps2pdf $(SIZE) $^
