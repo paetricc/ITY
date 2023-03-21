@@ -13,6 +13,7 @@
 *.cb2
 .*.lb
 proj*.pdf
+overlay.pdf
 
 ## Intermediate documents:
 *.dvi
