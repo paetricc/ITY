@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Autor: Tomas Bartu                %
 % Email: xbartu11@stud.fit.vutbr.cz %
-% Datum: 21.3.2023                  %
+% Datum: 28.3.2023                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt]{article}[20-03-2022]
@@ -22,7 +22,6 @@
 \renewcommand\UrlFont{\rmfamily}
 
 \begin{document}
-\catcode`\-=12
 \begin{titlepage}
     \begin{center}
         \Huge \textsc{Vysoké učení technické v Brně}
@@ -62,6 +61,7 @@ Další možností, jak vytvořit tabulku, je použít prostředí\texttt{ tabul
 Tabulky pak budou vypadat takto\footnotemark:
 \bigskip
 \begin{table}[h]
+    \catcode`\-=12
     \centering
     \begin{tabular}{| l | c | c |}
                                                            \hline
@@ -75,7 +75,8 @@ Tabulky pak budou vypadat takto\footnotemark:
     \label{tab1}
 \end{table}
 \bigskip
-    \begin{table}[h]
+\begin{table}[h]
+    \catcode`\-=12
     \centering
     \begin{tabular}{| >{\bfseries} c | c |}
         \hline
@@ -153,13 +154,12 @@ Příklad použití prostředí\texttt{ algorithm2e }viz Algoritmus~\ref{alg}.
     \Return{$X_t$}
     \caption{\textsc{FastSLAM}}
 \end{algorithm}
-\DecMargin{1.5em}
 
 \section{Obrázky}
 Do našich článků můžeme samozřejmě vkládat obrázky. Pokud je obrázkem fotografie, můžeme klidně použít bitmapový soubor. 
 Pokud by to ale mělo být nějaké schéma nebo něco podobného, je dobrým zvykem takovýto obrázek vytvořit vektorově.
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \scalebox{0.4}{
         \includegraphics{etiopan.eps}
@@ -171,7 +171,7 @@ Pokud by to ale mělo být nějaké schéma nebo něco podobného, je dobrým zv
 
 \newpage
 Rozdíl mezi vektorovým\,\dots
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \scalebox{0.4}{\includegraphics{oniisan.eps}}
     \caption{Vektorový obrázek}
@@ -179,14 +179,16 @@ Rozdíl mezi vektorovým\,\dots
 \end{figure}
 \bigskip
 \\\dots\,a bitmapovým obrázkem
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \scalebox{0.6}{\includegraphics{oniisan2.eps}}
     \caption{Bitmapový obrázek}
     \label{pic3}
 \end{figure}
 \bigskip
-\\se projeví například při zvětšení.
+
+\noindent
+se projeví například při zvětšení.
 
 Odkazy (nejen ty) na obrázky~\ref{pic1},~\ref{pic2} a~\ref{pic3}, na tabulky~\ref{tab1} a~\ref{tab2} a také na algoritmus~\ref{alg} jsou udělány pomocí křížových odkazů. 
 Pak je ovšem potřeba zdrojový soubor přeložit dvakrát.
