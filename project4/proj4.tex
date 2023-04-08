@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor: Tomas Bartu                %
+% Email: xbartu11@stud.fit.vutbr.cz %
+% Datum: 8.4.2023                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}[06-04-2023]
+
+\usepackage[text={17cm, 24cm}, left=2cm, top=3cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage{times}
+\usepackage[IL2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    citecolor = {teal},
+    linkcolor = {black},
+    urlcolor  = {black}
+}
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        {\Huge \textsc{Vysoké učení technické v Brně}\\[0.5em]
+        \huge\textsc{Fakulta informačních technologií}}
+        
+        \vspace{\stretch{0.382}}
+
+        {\LARGE Typografie a publikování\,--\,4. projekt\\[0.4em]
+        Bibliografické citace}
+        
+        \vspace{\stretch{0.618}}
+    \end{center}
+    { \Large 2023 \hfill Tomáš Bártů (xbartu11) }    
+\end{titlepage}
+
+\section*{Úvod}
+Tato práce se bude týkat samoopravných kódů, v angličtině označované jako ECC\,--\,\emph{Error Correction Codes}. 
+Konkrétně se bude zabývat BCH kódy a jejich popisu. 
+Dle~\cite{tutorial} jsou samoopravné kódy, které díky speciálním algoritmům, umožňují detekovat a opravit chyby v přenesených datech skrze přenosový kanál.
+Jeden z druhů samoopravných kódu jsou BCH kódy nebo jejich nebinární varianta\,--\,Reed-Solomonovy kódy~\cite{Geeks}. Více o Reed-Solomonových kódech se lze dozvědět z~\cite{RS}.
+
+\section*{BCH kódy}
+Tyto korekční kódy (\textbf{BCH}) popsali ve své práci~\cite{BCH} pánové Raj Chandra \textbf{B}ose a Dijen K. Ray-\textbf{C}haudhuri. Nezávisle na nich ve své práci~\cite{BCHFR} pan Alexis \textbf{H}ocquenghem.
+
+Pro každé kladné celé číslo $m > 2$ a jisté $t < 2^{m-1}$ existuje binární BCH kód, pro nějž platí následující vlastnosti, které jsou popsány v~\cite{Shu}: 
+\begin{tabbing}
+    \qquad Hammingova vzdálenost: \quad \= Cena \quad\            \kill
+    \qquad Délka kódového slova:        \> $n = 2^m - 1$,         \\
+    \qquad Hammingova vzdálenost:       \> $d_{min} \leq 2t + 1$, \\
+    \qquad Počet paritních bitů:        \> $n - k \leq mt$.
+\end{tabbing}
+V naprosté většině prací~\cite{Shu,Shu2,DP1,DP2} je zavedeno označení $BCH(n, k)$, kde $k$ reprezentuje délku zprávy. 
+
+Hlavní myšlenkou z $2^m$ prvků Galoisova tělesa (GF\,--\,Galois Field) vybrat takovou podmnožinu $2^k$ vektorů tak, aby tato podmnožina tvořila kód s výše uvedenými vlastnostmi. 
+Principem konstrukce je pro zadané $m$ a maximální násobnost chyby $t$ vytvořit těleso $GF(2^m)$, odvodit generující polynom $g(x)$ příslusného $BCH(n,k)$ a následně je možné pro všechna k-bitová datová slova vypočítat příslušná kódová slova. 
+Tyto postupy jsou realizovány pomocí kodérů a dekodérů. Časově nejnáročnější je nalezení a oprava případných chyb jež mohli při přenosu nastat. K tomuto účelu jsou vyvinuty algoritmy jako je například Euklidův algoritmus či Berkelamp-Masseyho algoritmus~\cite{Shu2}. 
+
+
+Těmito kódy se zabývali i studenti VUT ve svých diplomových pracích~\cite{DP1,DP2}. V těchto pracích jsou i pasáže týkající se konkrétní implementace BCH kódu, konkrétně v~\cite{DP1} jsou implementovány pomocí Matlabu a v~\cite{DP2} jsou implementovány ve VHDL. 
+Ze zahraniční literatury lze zmínit například~\cite{Morelos}, kde k této knize jsou dostupné jako názorný materiál konkrétní implementace růžných druhů kódů, a to i kódů BCH.
+
+\section*{Závěr}
+BCH kódy jsou široce využívanou třídou samoopravných kódů schopné korekce vícenásobných chyb~\cite{ece}. Používají se například v CD přehrávačích, SSD discích nebo v při skenování čárových kódů~\cite{Shu2}. 
+Časopis~\cite{ijet} zahrnuji publikace týkající se všech oblastní elektrotechniky a telekomunikací, včetně výzkumu samoopravných kódů jakou jsou zmíněné BCH kódy.
+
+\newpage
+\bibliographystyle{czplain}
+\renewcommand{\refname}{Literatura}
+\bibliography{bibliography}
+
+\end{document}
+
