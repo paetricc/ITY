@@ -29,8 +29,8 @@ overlay: latex
 	pdftk vzor.pdf multibackground $(NAME).pdf output overlay.pdf
 
 zip:
-	zip -r $(LOGIN).zip Makefile $(NAME).tex czplain.bst bibliography.bib
+	zip -r $(LOGIN).zip Makefile $(NAME).tex img/*
 
 # https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html#Choosing-the-Shell
 clean:
-	rm -rf $(NAME).{aux,dvi,log,ps,fls,synctex.gz,fdb_latexmk,out,bbl,blg,nav,snm,toc} 
+	rm -rf $(NAME).{aux,dvi,log,ps,fls,synctex.gz,fdb_latexmk,out,bbl,blg,nav,snm,toc,vrb} 

@@ -1,4 +1,10 @@
-\documentclass{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor: Tomas Bartu                %
+% Email: xbartu11@stud.fit.vutbr.cz %
+% Datum: 8.5.2023                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\documentclass{beamer}[03-05-2023]
 
 \usepackage[czech]{babel}
 \usepackage{times}
@@ -45,13 +51,13 @@
         \begin{algorithmic}[0]
             \Procedure{BFS}{$G, s$} 
             \State \textsc{InitQueue(Q)}
-            \State navštíveno[$s$] $\gets$ true
+            \State navštíveno[$s$] $\gets$ \textsc{TRUE}
             \State \textsc{Add(Q,s)}
             \While{\textsc{not} \textsc{IsEmpty(Q)}}
                 \State $u \gets$ \textsc{Front(Q)}
                 \For{každý vrchol $v$ sousedící s $u$}
-                    \If{navštíveno[$v$] $=$ false}
-                        \State navštíveno[$v$] $\gets$ true
+                    \If{navštíveno[$v$] $=$ \textsc{FALSE}}
+                        \State navštíveno[$v$] $\gets$ \textsc{TRUE}
                         \State \textsc{Add(Q,v)}
                     \EndIf
                 \EndFor
@@ -64,12 +70,24 @@
 
 
 \begin{frame}\frametitle{Příklad BFS algoritmu}
-    \begin{figure}[ht!]
-        \includegraphics<1>[width=0.6\linewidth]{img/ITY1.pdf}
-        \includegraphics<2>[width=0.5\linewidth]{img/ITY1.pdf}
+    \begin{figure}
+        \includegraphics<1>[height=170pt]                {img/ITY1.pdf}
+        \includegraphics<2>[height=170pt,trim={ 4 0 0 0}]{img/ITY2.pdf}
+        \includegraphics<3>[height=170pt,trim={ 8 0 0 0}]{img/ITY3.pdf}
+        \includegraphics<4>[height=170pt,trim={12 0 0 0}]{img/ITY4.pdf}
+        \includegraphics<5>[height=170pt,trim={16 0 0 0}]{img/ITY5.pdf}
+        \includegraphics<6>[height=170pt,trim={20 0 0 0}]{img/ITY6.pdf}
+        \includegraphics<7>[height=170pt,trim={24 0 0 0}]{img/ITY7.pdf}
+        \includegraphics<8>[height=170pt,trim={28 0 0 0}]{img/ITY8.pdf}
     \end{figure}
     \only<1>{$Q=s$}
-    \only<2>{$Q=rt$}
+    \only<2>{$Q=tr$}
+    \only<3>{$Q=rvu$}
+    \only<4>{$Q=vuq$}
+    \only<5>{$Q=uqw$}
+    \only<6>{$Q=qw$}
+    \only<7>{$Q=w$}
+    \only<8>{$Q=\emptyset$}
 \end{frame}
 
 \section{Hodnocení metody BFS}
