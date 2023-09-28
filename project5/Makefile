@@ -29,7 +29,7 @@ overlay: latex
 	pdftk vzor.pdf multibackground $(NAME).pdf output overlay.pdf
 
 zip:
-	zip -r $(LOGIN).zip Makefile $(NAME).tex img/*
+	zip -r $(LOGIN).zip Makefile $(NAME).tex ITY?.pdf
 
 # https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html#Choosing-the-Shell
 clean:

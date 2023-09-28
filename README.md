@@ -16,7 +16,7 @@
 | 2.     | Sazba dokumentů a matematických výrazů | 15 bodů   | 14 bodů    | -0.8:chybí nezlomitelné mezery (tildy, vlnky) pro předložky a/nebo spojky --> 41:V této úloze si vyzko </br> -0.2:chybí nezlomitelné mezery ...                                                                                                                           |
 | 3.     | Obrázky, algoritmy a tabulky           | 15 bodů   | 15 bodů    |                                                                                             |
 | 4.     | Bibliografické citace                  | 15 bodů   | 13,5 bodů  | spatne jmena u 3, 3 a 4 nemaji ISSN                                                         |
-| 5.     | Tvorba prezentací                      | 15 bodů   |            |                                                                                             |
+| 5.     | Tvorba prezentací                      | 15 bodů   | 11 bodů    |                                                                                             |
 
 ## Obecné pokyny k projektům
 Zde jsou uvedeny obecné pokyny a instrukce k projektům. Při práci na konkrétním projektu však věnujte pozornost i pokynům uvedeným u jednotlivých projektů, které mohou obecné instrukce dále upřesňovat.
