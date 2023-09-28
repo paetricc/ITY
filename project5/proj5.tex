@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor: Tomas Bartu                %
+% Email: xbartu11@stud.fit.vutbr.cz %
+% Datum: 8.5.2023                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\documentclass{beamer}[03-05-2023]
+
+\usepackage[czech]{babel}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{algorithm,algpseudocode}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Typografie a publikování\,--\,5. projekt}
+\subtitle{Grafový algoritmus}
+\author{Prohledávání grafu do šířky}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Obsah}
+    \tableofcontents
+\end{frame}
+
+\section{Popis algoritmu}
+\begin{frame}\frametitle{Popis algoritmu}
+    \begin{itemize}
+        \item Anglicky \emph{Breadth-First Search (BFS)}
+        \item Vstup: (ne)orientovaný graf $G = (V, E)$ a vrchol $s \in V$.
+        \item Prochází všechny vrcholy dostupné z $s$.
+        \item Vytváří \textbf{strom prohledávání do šířky} s kořenem $s$ obsahující všechny vrcholy dosažitelné z $s$. Cesta z $s$ do $v$ je nejkratší cestou v grafu.
+        \item Jedná se o neinformovanou metodu.
+    \end{itemize}
+    \begin{block}{Informované metody}
+        Nemají k dispozici žádnou informaci o cílovém stavu a nemají ani žádné prostředky, jak aktuální stavy hodnotit.
+    \end{block}
+\end{frame}
+
+\section{BFS algoritmus}
+\begin{frame} \frametitle{BFS algoritmus}
+    \begin{block}{Pseudokód algoritmu}
+        \small
+        \begin{algorithmic}[0]
+            \Procedure{BFS}{$G, s$} 
+            \State \textsc{InitQueue(Q)}
+            \State navštíveno[$s$] $\gets$ \textsc{TRUE}
+            \State \textsc{Add(Q,s)}
+            \While{\textsc{not} \textsc{IsEmpty(Q)}}
+                \State $u \gets$ \textsc{Front(Q)}
+                \For{každý vrchol $v$ sousedící s $u$}
+                    \If{navštíveno[$v$] $=$ \textsc{FALSE}}
+                        \State navštíveno[$v$] $\gets$ \textsc{TRUE}
+                        \State \textsc{Add(Q,v)}
+                    \EndIf
+                \EndFor
+                \State \textsc{Remove(Q)}
+            \EndWhile
+            \EndProcedure
+        \end{algorithmic}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}\frametitle{Příklad BFS algoritmu}
+    \begin{figure}
+        \includegraphics<1>[height=170pt]                {ITY1.pdf}
+        \includegraphics<2>[height=170pt,trim={ 4 0 0 0}]{ITY2.pdf}
+        \includegraphics<3>[height=170pt,trim={ 8 0 0 0}]{ITY3.pdf}
+        \includegraphics<4>[height=170pt,trim={12 0 0 0}]{ITY4.pdf}
+        \includegraphics<5>[height=170pt,trim={16 0 0 0}]{ITY5.pdf}
+        \includegraphics<6>[height=170pt,trim={20 0 0 0}]{ITY6.pdf}
+        \includegraphics<7>[height=170pt,trim={24 0 0 0}]{ITY7.pdf}
+        \includegraphics<8>[height=170pt,trim={28 0 0 0}]{ITY8.pdf}
+    \end{figure}
+    \only<1>{$Q=s$}
+    \only<2>{$Q=tr$}
+    \only<3>{$Q=rvu$}
+    \only<4>{$Q=vuq$}
+    \only<5>{$Q=uqw$}
+    \only<6>{$Q=qw$}
+    \only<7>{$Q=w$}
+    \only<8>{$Q=\emptyset$}
+\end{frame}
+
+\section{Hodnocení metody BFS}
+\begin{frame}\frametitle{Hodnocení metody BFS}
+    \begin{itemize}
+        \item Metoda je úplná
+        \item Metoda je optimální
+        \item Časová složitost je exponenciální: $\Theta_{BFS}(b^{d+1})$
+        \item Prostorová složitost je exponenciální: $\Theta_{BFS}(b^{d+1})$
+    \end{itemize}
+    Symbol $b$ značí průměrný počet bezpeostředních následníků expandovaných uzlů a symbol $d$ značí hloubku stromu.
+\end{frame}
+
+\begin{frame}\frametitle{Použité zdroje}
+    \begin{thebibliography}{2}
+        \bibitem[IAL]{IAL}
+            Křena, B. \emph{Algoritmy: Grafové algoritmy}. FIT VUT v Brně, 2021 [cit. 2023-05-04].
+        \bibitem[IZU]{IZU}
+            Zbořil, F. \emph{Základy umělé inteligence: Studijní text}. FIT VUT v Brně, 2021 [cit. 2023-05-04].
+    \end{thebibliography}
+\end{frame}
+
+\end{document}
